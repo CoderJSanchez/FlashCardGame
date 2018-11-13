@@ -3,14 +3,22 @@ const pug = require('pug');
 
 const app = express();
 
+const colors = [
+    'red',
+    'orange',
+    'yellow',
+    'blue',
+    'purple'
+];
+
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
     res.render('index');
 });
 
-app.get('/hello', (req, res) => {
-    res.send("<h1>And my family</h1>");
+app.get('/cards', (req, res) => {
+    res.render("card", {prompt: "Who is buried in Grants tomb", colors});
 });
 
 app.listen(3000, () => {
